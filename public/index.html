@@ -21,6 +21,12 @@
     socket.on('init', function (obj) {
         console.log('Message: ', obj);
     });
-    socket.emit('message', { name: 'Nest' }, data => console.log(data));
+    socket.on('new-message', function(payload) {
+        console.log('Escuchando:', payload);
+    })
+    socket.on('active-bands', function(payload) {
+        console.clear();
+        console.table(payload);
+    })
 </script>
 </html>
