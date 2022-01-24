@@ -6,7 +6,7 @@ import {
   WebSocketServer,
   WsResponse
 } from '@nestjs/websockets';
-import { Server } from 'socket.io';
+import { Server, Socket } from 'socket.io';
 import { Band } from './band';
 import { Bands } from './bands';
 @WebSocketGateway()
@@ -21,8 +21,9 @@ export class AppGateway implements OnGatewayConnection {
     this.bands.addBand(new Band('Megadeth'));
   }
 
-  handleConnection(server: Server) {
-    server.emit('active-bands', this.bands.bands);
+  handleConnection(client: Socket) {
+    console.log('Cliente conectado:', client.handshake.url);
+    client.emit('active-bands', this.bands.bands);
   }
 
   @SubscribeMessage('emit-message')
