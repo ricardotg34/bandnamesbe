@@ -5,7 +5,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AppGateway } from './app.gateway';
 import { Bands } from './bands';
-import { Band } from './band';
 
 @Module({
   imports: [

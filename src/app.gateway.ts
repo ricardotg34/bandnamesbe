@@ -15,7 +15,6 @@ export class AppGateway implements OnGatewayConnection {
   server: Server;
 
   constructor(private bands: Bands) {
-    this.bands = new Bands();
     this.bands.addBand(new Band('Metallica'));
     this.bands.addBand(new Band('System of a Down'));
     this.bands.addBand(new Band('Quiebrasol'));
