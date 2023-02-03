@@ -22,7 +22,7 @@ export class AppGateway implements OnGatewayConnection {
   }
 
   handleConnection(client: Socket) {
-    console.log('Cliente conectado:', client.handshake.url);
+    console.log('Cliente conectado:', client.handshake.headers);
     client.emit('active-bands', this.bands.bands);
   }
 
